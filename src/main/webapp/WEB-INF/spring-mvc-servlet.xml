@@ -75,7 +75,7 @@
     <task:scheduler id="scheduler" pool-size="15"/>
     <mvc:annotation-driven/>
     <mvc:view-controller path="/" view-name="dangnhap"/>
-
+    <mvc:resources mapping="/resources/**" location="/resources/" />
     <mvc:interceptors>
         <bean class="dangnhap.SessionValidator"/>
     </mvc:interceptors>

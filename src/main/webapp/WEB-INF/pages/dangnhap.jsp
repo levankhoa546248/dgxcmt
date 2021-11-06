@@ -13,7 +13,7 @@
     <meta name="author" content="">
 
     <title>Định giá xe cũ miền tây</title>
-
+    <link href="<c:url value="/resources/css/sb-admin-2.min.css" />" rel="stylesheet">
 </head>
 
 <body class="bg-gradient-primary">
