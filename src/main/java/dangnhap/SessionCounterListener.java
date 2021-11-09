@@ -9,10 +9,6 @@ import java.io.File;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
-/**
- *
- * @author NguyenHoanTuan
- */
 public class SessionCounterListener implements HttpSessionListener {
 
     private static int totalActiveSessions;
