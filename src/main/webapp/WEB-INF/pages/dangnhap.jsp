@@ -13,9 +13,9 @@
     <meta name="author" content="">
 
     <title>Định giá xe cũ miền tây</title>
+    <link rel="shortcut icon" href="<c:url value="/resources/img/favicon.png" />" type="image/x-icon"/>
     <link href="<c:url value="/resources/css/sb-admin-2.min.css" />" rel="stylesheet">
     <script src="<c:url value="/resources/jquery/jquery.min.js" />"></script>
-    <script src="<c:url value="/resources/js/sb-admin-2.js" />"></script>
     <script src="<c:url value="/resources/js/sb-admin-2.min.js" />"></script>
 
 </head>

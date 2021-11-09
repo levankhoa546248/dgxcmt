@@ -19,7 +19,7 @@ public class UserController {
                     @RequestParam(value = "username") String username,
                     @RequestParam(value = "password") String password) {
 
-        return "1";
+        return "";
     }
 
 }
