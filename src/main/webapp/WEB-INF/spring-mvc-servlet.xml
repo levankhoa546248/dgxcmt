@@ -10,7 +10,7 @@
       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
       http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
-    <context:component-scan base-package="dangnhap"/>
+    <context:component-scan base-package="admin.dangnhap"/>
     <context:component-scan base-package="jdbc"/>
     <context:annotation-config/>
     <bean
@@ -22,7 +22,7 @@
             <value>.jsp</value>
         </property>
     </bean>
-    <bean id="SessionFilter" class="dangnhap.SessionFilter"/>
+    <bean id="SessionFilter" class="admin.dangnhap.SessionFilter"/>
     <bean id="dataSourceBATSO"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
@@ -59,10 +59,10 @@
     <task:annotation-driven scheduler="scheduler"/>
     <task:scheduler id="scheduler" pool-size="15"/>
     <mvc:annotation-driven/>
-    <mvc:view-controller path="/" view-name="dangnhap"/>
+    <mvc:view-controller path="/" view-name="admin/dangnhap"/>
     <mvc:resources mapping="/resources/**" location="/resources/" />
     <mvc:interceptors>
-        <bean class="dangnhap.SessionValidator"/>
+        <bean class="admin.dangnhap.SessionValidator"/>
     </mvc:interceptors>
     <mvc:annotation-driven/>
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
