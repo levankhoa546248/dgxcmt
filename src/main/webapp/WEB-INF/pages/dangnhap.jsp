@@ -28,11 +28,11 @@
 <script>
     $(function () {
         $("#login").click(function (e) {
-            var userName = $("#userName").val();
-            var passWord = $("#passWord").val();
+            var taikhoan = $("#userName").val();
+            var matkhau = $("#passWord").val();
             $.post("dangnhap", {
-                username: userName,
-                password: passWord
+                taikhoan: taikhoan,
+                matkhau: matkhau
             }).done(function (data) {
                 $(location).attr("href", "trangchu");
             });

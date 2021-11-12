@@ -10,7 +10,7 @@
       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
       http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
-    <context:component-scan base-package="admin.dangnhap"/>
+    <context:component-scan base-package="dangnhap"/>
     <context:component-scan base-package="jdbc"/>
     <context:annotation-config/>
     <bean
@@ -22,47 +22,27 @@
             <value>.jsp</value>
         </property>
     </bean>
-    <bean id="SessionFilter" class="admin.dangnhap.SessionFilter"/>
-    <bean id="dataSourceBATSO"
+    <bean id="SessionFilter" class="dangnhap.SessionFilter"/>
+    <bean id="dataSourceMysql"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url"
-                  value="jdbc:mysql://10.82.14.56:3306/batso_khambenh?useUnicode=true&amp;characterEncoding=UTF-8"/>
-        <property name="username" value="khoamap"/>
-        <property name="password" value="Qlbv@2015"/>
-    </bean>
-
-    <bean id="dataSourceMNG" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
-        <property name="jdbcUrl" value="${db.url}"/>
-        <property name="username" value="Admin"/>
+                  value="${db.url}"/>
+        <property name="username" value="${db.user}"/>
         <property name="password" value="${db.pass}"/>
-        <property name="maximumPoolSize" value="300"/>
-        <property name="minimumIdle" value="10"/>
-        <property name="poolName" value="POOL_HIS_MNG"/>
-        <property name="idleTimeout" value="600000"/>
-        <property name="maxLifetime" value="900000"/>
-        <property name="connectionTimeout" value="60000"/>
-        <property name="connectionInitSql" value="Select 1 from dual"/>
-        <property name="leakDetectionThreshold" value="60000"/>
     </bean>
 
     <util:properties id="customVariablesProperties"
                      location="/WEB-INF/config_db.properties"/>
     <context:property-placeholder properties-ref="customVariablesProperties"/>
 
-    <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-        <property name="showSql" value="true"/>
-        <property name="generateDdl" value="false"/>
-        <property name="databasePlatform" value="org.hibernate.dialect.Oracle12cDialect"/>
-    </bean>
-
     <task:annotation-driven scheduler="scheduler"/>
     <task:scheduler id="scheduler" pool-size="15"/>
     <mvc:annotation-driven/>
-    <mvc:view-controller path="/" view-name="admin/dangnhap"/>
+    <mvc:view-controller path="/" view-name="dangnhap"/>
     <mvc:resources mapping="/resources/**" location="/resources/" />
     <mvc:interceptors>
-        <bean class="admin.dangnhap.SessionValidator"/>
+        <bean class="dangnhap.SessionValidator"/>
     </mvc:interceptors>
     <mvc:annotation-driven/>
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>

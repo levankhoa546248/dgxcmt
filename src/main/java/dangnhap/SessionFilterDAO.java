@@ -1,4 +1,4 @@
-package admin.dangnhap;
+package dangnhap;
 
 import javax.servlet.http.HttpSession;
 

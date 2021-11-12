@@ -38,7 +38,7 @@
         <session-timeout>20</session-timeout>
     </session-config>
     <listener>
-        <listener-class>admin.dangnhap.SessionCounterListener</listener-class>
+        <listener-class>dangnhap.SessionCounterListener</listener-class>
     </listener>
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

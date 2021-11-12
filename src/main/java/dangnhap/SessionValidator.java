@@ -1,4 +1,4 @@
-package admin.dangnhap;
+package dangnhap;
 
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
