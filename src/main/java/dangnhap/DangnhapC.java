@@ -20,8 +20,11 @@ public class DangnhapC {
     @RequestMapping(value = "/dangnhap")
     public @ResponseBody
     String dangnhap(@RequestParam(value = "taikhoan") String taikhoan,
-                    @RequestParam(value = "matkhau") String matkhau) {
+                    @RequestParam(value = "matkhau") String matkhau,
+                    HttpSession session) {
         Map nhanvien = dangnhapD.dangnhap(taikhoan, matkhau, "1");
+        session.setAttribute("name","value");
+
         return "SUCCESS";
     }
 

@@ -19,7 +19,7 @@ public class DangnhapI implements DangnhapD {
     public Map dangnhap(String taikhoan, String matkhau, String scode) {
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSourceMysql);
         String query = "call DANG_NHAP(?,?,?)";
-        Map nhanvien = jdbcTemplate.queryForMap(query, new Object[]{"admin", "1", "1"});
+        Map nhanvien = jdbcTemplate.queryForMap(query, new Object[]{taikhoan, matkhau, scode});
         return nhanvien;
     }
 }
