@@ -12,17 +12,13 @@
       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
     <context:component-scan base-package="dangnhap"/>
     <context:component-scan base-package="jdbc"/>
+    <context:component-scan base-package="configure"/>
     <context:annotation-config/>
     <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix">
-            <value>/WEB-INF/pages/</value>
-        </property>
-        <property name="suffix">
-            <value>.jsp</value>
-        </property>
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
-    <bean id="SessionFilter" class="dangnhap.SessionFilter"/>
     <bean id="dataSourceMysql"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
@@ -42,10 +38,9 @@
     <mvc:view-controller path="/" view-name="dangnhap"/>
     <mvc:resources mapping="/resources/**" location="/resources/" />
     <mvc:interceptors>
-        <bean class="dangnhap.SessionValidator"/>
+        <bean class="configure.HandlerInterceptor"/>
     </mvc:interceptors>
     <mvc:annotation-driven/>
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
-
 
 </beans>

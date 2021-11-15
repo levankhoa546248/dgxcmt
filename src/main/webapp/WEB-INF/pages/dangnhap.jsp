@@ -1,7 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +13,7 @@
     <title>Định giá xe cũ miền tây</title>
     <link rel="shortcut icon" href="<c:url value="/resources/img/favicon.png" />" type="image/x-icon"/>
 
+    <link href="<c:url value="/resources/jAlert/jquery.alerts.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/fontawesome-free/css/all.min.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/sb-admin-2.min.css" />" rel="stylesheet">
     <!-- Custom fonts for this template-->
@@ -23,6 +23,7 @@
     <script src="<c:url value="/resources/js/sb-admin-2.min.js" />"></script>
     <script src="<c:url value="/resources/bootstrap/js/bootstrap.bundle.min.js" />"></script>
     <script src="<c:url value="/resources/jquery-easing/jquery.easing.min.js" />"></script>
+    <script src="<c:url value="/resources/jAlert/jquery.alerts.js" />"></script>
 </head>
 
 <script>
@@ -30,11 +31,15 @@
         $("#login").click(function (e) {
             var taikhoan = $("#userName").val();
             var matkhau = $("#passWord").val();
-            $.post("dangnhap", {
+            $.post("dang-nhap", {
                 taikhoan: taikhoan,
                 matkhau: matkhau
             }).done(function (data) {
-                $(location).attr("href", "trangchu");
+                if (data == "SUCCESS"){
+                    $(location).attr("href", "trang-chu");
+                } else {
+                    jAlert("Đăng nhập thất bại", "Thông báo");
+                }
             });
         });
     });

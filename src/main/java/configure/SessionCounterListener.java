@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dangnhap;
+package configure;
+
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 import java.io.File;
-
 public class SessionCounterListener implements HttpSessionListener {
 
     private static int totalActiveSessions;
@@ -27,28 +28,6 @@ public class SessionCounterListener implements HttpSessionListener {
     public void sessionDestroyed(HttpSessionEvent arg0) {
         totalActiveSessions--;
         System.out.println("sessionDestroyed - deduct one session from counter");
-        // Hiếu CMU 23/11/2017
-        File directory = new File(arg0.getSession().getServletContext().getRealPath("/") + "resources/Report/" + arg0.getSession().getId());
-        deleteDirectory(directory);
-        // Hiếu CMU 23/11/2017
     }
-    
-    // Hiếu CMU 23/11/2017
-    private boolean deleteDirectory(File directory) {
-        if(directory.exists()){
-            File[] files = directory.listFiles();
-            if(null!=files){
-                for (File file : files) {
-                    if (file.isDirectory()) {
-                        deleteDirectory(file);
-                    } else {
-                        file.delete();
-                    }
-                }
-            }
-            return(directory.delete());
-        }
-        return false;
-    }
-    // Hiếu CMU 23/11/2017
+
 }

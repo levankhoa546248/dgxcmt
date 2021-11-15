@@ -662,7 +662,7 @@ sql6450517|schema||sql6450517||UPDATE|G</Grants>
     <table id="202" parent="3" name="cuahang"/>
     <table id="203" parent="3" name="nhanvien"/>
     <routine id="204" parent="3" name="DANG_NHAP">
-      <SourceTextLength>99</SourceTextLength>
+      <SourceTextLength>119</SourceTextLength>
       <Definer>sql6450517@%</Definer>
       <RoutineKind>procedure</RoutineKind>
     </routine>
