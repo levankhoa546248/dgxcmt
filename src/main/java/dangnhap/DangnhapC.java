@@ -23,7 +23,6 @@ public class DangnhapC {
         if (session.getAttribute("SUCCESS") == null) {
             return new ModelAndView("dangnhap");
         } else {
-            map.put("aMenu", "1");//aMenu = 1: active menu trang chủ
             return new ModelAndView("trangchu/trangchu");
         }
 
@@ -49,7 +48,7 @@ public class DangnhapC {
 
     @RequestMapping(value = {"/dang-xuat"}, method = RequestMethod.GET)
     public ModelAndView dangxuat(HttpSession session) {
-        SecurityContextHolder.getContext().setAuthentication(null);
+        session.invalidate();
         return new ModelAndView("dangnhap");
     }
 
