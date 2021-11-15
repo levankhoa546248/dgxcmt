@@ -1,6 +1,9 @@
 <component name="ArtifactManager">
   <artifact type="war" name="dgxcmt:war">
     <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="ant-preprocessing">
+      <options enabled="true" />
+    </properties>
     <properties id="maven-jee-properties">
       <options>
         <module>dgxcmt</module>

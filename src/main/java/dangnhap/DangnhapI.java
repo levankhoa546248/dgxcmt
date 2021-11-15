@@ -16,7 +16,7 @@ public class DangnhapI implements DangnhapD {
     DataSource dataSourceMysql;
 
     @Override
-    public Map dangnhap(String taikhoan, String matkhau, String scode) {
+    public Map dangnhap(String taikhoan, String matkhau, String scode) throws Exception{
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSourceMysql);
         String query = "call DANG_NHAP(?,?,?)";
         Map nhanvien = jdbcTemplate.queryForMap(query, new Object[]{taikhoan, matkhau, scode});
