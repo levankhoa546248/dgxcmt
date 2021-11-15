@@ -4,6 +4,7 @@ import configure.SessionCounterListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,12 +19,14 @@ public class DangnhapC {
     DangnhapD dangnhapD;
 
     @RequestMapping(value = {"/", "/trang-chu"}, method = {RequestMethod.GET, RequestMethod.POST})
-    public ModelAndView trangChu(HttpSession session) {
+    public ModelAndView trangChu(HttpSession session, ModelMap map) {
         if (session.getAttribute("SUCCESS") == null) {
             return new ModelAndView("dangnhap");
         } else {
+            map.put("aMenu", "1");//aMenu = 1: active menu trang chủ
             return new ModelAndView("trangchu/trangchu");
         }
+
     }
 
     @RequestMapping(value = "/dang-nhap")
