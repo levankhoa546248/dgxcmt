@@ -1,6 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +25,7 @@
     <script src="<c:url value="/resources/bootstrap/js/bootstrap.bundle.min.js" />"></script>
     <script src="<c:url value="/resources/jquery-easing/jquery.easing.min.js" />"></script>
     <script src="<c:url value="/resources/jAlert/jquery.alerts.js" />"></script>
+
 </head>
 
 <script>
@@ -75,10 +77,10 @@
                                 </button>
                                 <hr>
                                 <div class="text-center">
-                                    <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                    <a class="small" href="quen-mat-khau">Quên mật khẩu?</a>
                                 </div>
                                 <div class="text-center">
-                                    <a class="small" href="register.html">Create an Account!</a>
+                                    <a class="small" href="dang-ky">Đăng ký tài khoản!</a>
                                 </div>
                             </div>
                         </div>
