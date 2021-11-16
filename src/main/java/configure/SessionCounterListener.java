@@ -5,11 +5,9 @@
  */
 package configure;
 
-import org.springframework.stereotype.Component;
-
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
-import java.io.File;
+
 public class SessionCounterListener implements HttpSessionListener {
 
     private static int totalActiveSessions;
