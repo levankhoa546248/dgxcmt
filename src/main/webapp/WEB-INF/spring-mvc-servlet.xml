@@ -10,6 +10,7 @@
       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
       http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+    <context:component-scan base-package="dongxe"/>
     <context:component-scan base-package="dangnhap"/>
     <context:component-scan base-package="configure"/>
     <context:annotation-config/>
