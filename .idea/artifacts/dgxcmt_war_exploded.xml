@@ -14,7 +14,6 @@
           <element id="module-output" name="dgxcmt" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Maven: org.slf4j:slf4j-simple:1.7.5" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.5" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.0.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.0.2.RELEASE" />
