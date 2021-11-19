@@ -6,3 +6,4 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+/libraries/Maven__org_springframework_security_spring_security_acl_5_5_12.xml
