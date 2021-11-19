@@ -47,10 +47,10 @@
     </div>
 
     <!-- Nav Item - Charts -->
-    <li class="nav-item <%=url.equals("dong-xe")?"active":""%>">
-        <a class="nav-link" href="dong-xe">
+    <li class="nav-item <%=url.equals("hang-xe")?"active":""%>">
+        <a class="nav-link" href="hang-xe">
             <i class="fas fa-fw fa-chart-area"></i>
-            <span>Dòng xe</span></a>
+            <span>Hãng xe</span></a>
     </li>
 
     <!-- Nav Item - Charts -->

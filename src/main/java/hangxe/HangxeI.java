@@ -1,4 +1,4 @@
-package dongxe;
+package hangxe;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -7,10 +7,9 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.util.List;
-import java.util.Map;
 
 @Component
-public class DongxeI implements DongxeD{
+public class HangxeI implements HangxeD {
 
 
     @Autowired
@@ -18,9 +17,9 @@ public class DongxeI implements DongxeD{
     DataSource dataSourceMysql;
 
     @Override
-    public List danhSachDongXe(String scode) {
+    public List danhSachHangXe(String scode) {
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSourceMysql);
-        String query = "call DANH_SACH_DONG_XE(?)";
+        String query = "call DANH_SACH_HANG_XE(?)";
         List list = jdbcTemplate.queryForList(query, scode);
         return list;
     }
