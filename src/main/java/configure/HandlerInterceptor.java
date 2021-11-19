@@ -12,7 +12,7 @@ public class HandlerInterceptor extends HandlerInterceptorAdapter {
                              HttpServletResponse response,
                              Object handler) throws Exception {
         if (handler instanceof HandlerMethod) {
-//            request.getSession().setMaxInactiveInterval(10);
+            request.getSession().setMaxInactiveInterval(120);
         }
         return true;
     }

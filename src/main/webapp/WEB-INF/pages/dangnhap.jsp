@@ -1,6 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,23 +25,50 @@
     <script src="<c:url value="/resources/bootstrap/js/bootstrap.bundle.min.js" />"></script>
     <script src="<c:url value="/resources/jquery-easing/jquery.easing.min.js" />"></script>
     <script src="<c:url value="/resources/jAlert/jquery.alerts.js" />"></script>
+
 </head>
 
 <script>
     $(function () {
+        $("#userName").keypress(function (e){
+            if (e.keyCode == 13) {
+                $("#passWord").focus();
+            }
+        });
+
+        $("#passWord").keypress(function (e){
+            if (e.keyCode == 13) {
+                $("#login").click();
+            }
+        });
+
         $("#login").click(function (e) {
             var taikhoan = $("#userName").val();
             var matkhau = $("#passWord").val();
-            $.post("dang-nhap", {
-                taikhoan: taikhoan,
-                matkhau: matkhau
-            }).done(function (data) {
-                if (data == "SUCCESS"){
-                    $(location).attr("href", "trang-chu");
-                } else {
-                    jAlert("Đăng nhập thất bại", "Thông báo");
-                }
-            });
+            if (taikhoan == "" || taikhoan == null){
+                jAlert("Chưa nhập username", "Thông báo", function (e){
+                    if (e){
+                        $("#userName").focus();
+                    }
+                });
+            } else if (matkhau == "" || matkhau == null){
+                jAlert("Chưa nhập password", "Thông báo", function (e){
+                    if (e){
+                        $("#passWord").focus();
+                    }
+                });
+            } else {
+                $.post("dang-nhap", {
+                    taikhoan: taikhoan,
+                    matkhau: matkhau
+                }).done(function (data) {
+                    if (data == "SUCCESS"){
+                        $(location).attr("href", "trang-chu");
+                    } else {
+                        jAlert("Đăng nhập thất bại", "Thông báo");
+                    }
+                });
+            }
         });
     });
 </script>
@@ -57,7 +85,8 @@
                 <div class="card-body p-0">
                     <!-- Nested Row within Card Body -->
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                        <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">ĐỊNH GIÁ XE CŨ MIỀN TÂY (ĐGXCMT)</h1>
@@ -68,17 +97,17 @@
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control form-control-user"
-                                           id="passWord" placeholder="Password">
+                                           id="passWord" placeholder="Enter Password">
                                 </div>
                                 <button id="login" class="btn btn-primary btn-user btn-block">
                                     Login
                                 </button>
                                 <hr>
                                 <div class="text-center">
-                                    <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                    <a class="small" href="quen-mat-khau">Quên mật khẩu?</a>
                                 </div>
                                 <div class="text-center">
-                                    <a class="small" href="register.html">Create an Account!</a>
+                                    <a class="small" href="dang-ky">Đăng ký tài khoản!</a>
                                 </div>
                             </div>
                         </div>
