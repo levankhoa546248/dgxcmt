@@ -61,4 +61,9 @@ public class DangnhapC {
         }
     }
 
+    @RequestMapping(value = {"/dang-ky"}, method = RequestMethod.GET)
+    public ModelAndView dangKy(HttpSession session) {
+        return new ModelAndView("dangky");
+    }
+
 }
