@@ -23,7 +23,7 @@
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url"
-                  value="${db.url}"/>
+                  value="${db.url}?useUnicode=true&amp;characterEncoding=UTF-8"/>
         <property name="username" value="${db.user}"/>
         <property name="password" value="${db.pass}"/>
     </bean>
