@@ -61,4 +61,24 @@ public class DangnhapC {
         }
     }
 
+    @RequestMapping(value = {"/dang-ky"}, method = RequestMethod.GET)
+    public ModelAndView dangKy(HttpSession session) {
+        return new ModelAndView("dangky");
+    }
+
+
+    @RequestMapping(value = "/dang-ky-tai-khoan")
+    public @ResponseBody
+    String dangKyTaiKhoan(@RequestParam(value = "ho") String ho,
+                          @RequestParam(value = "ten") String ten,
+                          @RequestParam(value = "taikhoan") String taikhoan,
+                          @RequestParam(value = "matkhau") String matkhau) {
+        try {
+            String scode = "1";
+            String result = dangnhapD.dangky(scode, ho, ten, taikhoan, matkhau);
+            return result;
+        } catch (Exception ex) {
+            return "-4";
+        }
+    }
 }

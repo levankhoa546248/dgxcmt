@@ -30,36 +30,37 @@
 
 <script>
     $(function () {
-        $("#userName").keypress(function (e){
+        $("#taiKhoan").keypress(function (e){
             if (e.keyCode == 13) {
-                $("#passWord").focus();
-            }
-        });
-        $("#passWord").keypress(function (e){
-            if (e.keyCode == 13) {
-                $("#login").click();
+                $("#matKhau").focus();
             }
         });
 
-        $("#login").click(function (e) {
-            var taikhoan = $("#userName").val();
-            var matkhau = $("#passWord").val();
-            if (taikhoan == "" || taikhoan == null){
-                jAlert("Chưa nhập username", "Thông báo", function (e){
+        $("#matKhau").keypress(function (e){
+            if (e.keyCode == 13) {
+                $("#dangNhap").click();
+            }
+        });
+
+        $("#dangNhap").click(function (e) {
+            var taiKhoan = $("#taiKhoan").val();
+            var matKhau = $("#matKhau").val();
+            if (taiKhoan == "" || taiKhoan == null){
+                jAlert("Chưa nhập tài khoản", "Thông báo", function (e){
                     if (e){
-                        $("#userName").focus();
+                        $("#taiKhoan").focus();
                     }
                 });
-            } else if (matkhau == "" || matkhau == null){
-                jAlert("Chưa nhập password", "Thông báo", function (e){
+            } else if (matKhau == "" || matKhau == null){
+                jAlert("Chưa nhập mật khẩu", "Thông báo", function (e){
                     if (e){
-                        $("#passWord").focus();
+                        $("#matKhau").focus();
                     }
                 });
             } else {
                 $.post("dang-nhap", {
-                    taikhoan: taikhoan,
-                    matkhau: matkhau
+                    taikhoan: taiKhoan,
+                    matkhau: matKhau
                 }).done(function (data) {
                     if (data == "SUCCESS"){
                         $(location).attr("href", "trang-chu");
@@ -83,24 +84,27 @@
             <div class="card o-hidden border-0 shadow-lg my-5">
                 <div class="card-body p-0">
                     <!-- Nested Row within Card Body -->
-                    <div class="row">
+                    <div class="row" >
                         <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">ĐỊNH GIÁ XE CŨ MIỀN TÂY (ĐGXCMT)</h1>
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control form-control-user"
-                                           id="userName" placeholder="Enter Username">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control form-control-user"
-                                           id="passWord" placeholder="Enter Password">
-                                </div>
-                                <button id="login" class="btn btn-primary btn-user btn-block">
-                                    Login
-                                </button>
+                                <form class="user" onsubmit="return false;">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-user"
+                                               id="taiKhoan" aria-describedby="emailHelp"
+                                               placeholder="Nhập tài khoản">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control form-control-user"
+                                               id="matKhau" placeholder="Mật khẩu">
+                                    </div>
+                                    <button id="dangNhap" class="btn btn-primary btn-user btn-block">
+                                        Đăng nhập
+                                    </button>
+                                </form>
                                 <hr>
                                 <div class="text-center">
                                     <a class="small" href="quen-mat-khau">Quên mật khẩu?</a>
