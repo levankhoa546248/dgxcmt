@@ -12,12 +12,12 @@ import java.util.Map;
 public class DangnhapI implements DangnhapD {
 
     @Autowired
-    @Resource(name = "dataSourceMysql")
-    DataSource dataSourceMysql;
+    @Resource(name = "dataSource")
+    DataSource dataSource;
 
     @Override
     public Map dangnhap(String taikhoan, String matkhau, String scode) throws Exception {
-        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSourceMysql);
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         String query = "call DANG_NHAP(?,?,?)";
         Map nhanvien = jdbcTemplate.queryForMap(query, taikhoan, matkhau, scode);
         return nhanvien;
