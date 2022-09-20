@@ -9,7 +9,7 @@ import javax.sql.DataSource;
 import java.util.Map;
 
 @Component
-public class DangnhapI implements DangnhapD {
+public class dangNhapImplements implements dangNhapInterface {
 
     @Autowired
     @Resource(name = "dataSource")

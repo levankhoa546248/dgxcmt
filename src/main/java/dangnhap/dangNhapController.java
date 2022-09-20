@@ -13,10 +13,10 @@ import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 @Controller
-public class DangnhapC {
+public class dangNhapController {
 
     @Autowired
-    DangnhapD dangnhapD;
+    dangNhapInterface dangNhapInterface;
 
     @RequestMapping(value = {"/", "/trang-chu"}, method = {RequestMethod.GET, RequestMethod.POST})
     public ModelAndView trangChu(HttpSession session, ModelMap map) {
@@ -34,7 +34,7 @@ public class DangnhapC {
                     @RequestParam(value = "matkhau") String matkhau,
                     HttpSession session) {
         try {
-            Map nhanvien = dangnhapD.dangnhap(taikhoan, matkhau, "1");
+            Map nhanvien = dangNhapInterface.dangnhap(taikhoan, matkhau, "1");
             session.setAttribute("SUCCESS", nhanvien.getOrDefault("success", ""));
             session.setAttribute("SCODE", nhanvien.getOrDefault("scode", ""));
             session.setAttribute("TAIKHOAN", nhanvien.getOrDefault("taikhoan", ""));
